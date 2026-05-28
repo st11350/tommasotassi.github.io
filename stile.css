@@ -1,0 +1,566 @@
+/* ===================== RESET & BASE ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f5f0;
+  color: #2c2c2c;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #1a1a1a;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nav-links > li {
+  position: relative;
+}
+
+.nav-links > li > a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #444;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links > li > a:hover,
+.nav-links > li > a.attivo {
+  background: #f0f0ea;
+  color: #1a1a1a;
+}
+
+/* ---- Dropdown ---- */
+.menu-tendina {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+  z-index: 200;
+}
+
+.dropdown:hover > .menu-tendina {
+  display: block;
+}
+
+.menu-tendina li a {
+  display: block;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  color: #555;
+  transition: background 0.15s;
+}
+
+.menu-tendina li a:hover {
+  background: #f5f5f0;
+  color: #1a1a1a;
+}
+
+/* Sottogruppo (Scientifiche / Umanistiche) */
+.sottogruppo > span {
+  display: block;
+  padding: 0.6rem 1.2rem 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+}
+
+.sottogruppo + .sottogruppo {
+  border-top: 1px solid #eee;
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+/* ===================== CHI SONO ===================== */
+.chi-sono {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 860px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+.foto-profilo {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid #e0e0e0;
+}
+
+.chi-sono-testo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+.chi-sono-testo h1 span {
+  color: #5a7a5a;
+}
+
+.chi-sono-testo p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ===================== ISPIRAZIONI ===================== */
+.ispirazioni {
+  max-width: 860px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+
+.ispirazioni h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.ispirazioni-griglia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.ispirazione {
+  background: #ffffff;
+  border: 1px solid #e5e5e0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.ispirazione:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.ispirazione img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  flex-shrink: 0;
+}
+
+.ispirazione-testo {
+  padding: 1.2rem;
+  flex: 1;
+}
+
+.ispirazione-testo h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #1a1a1a;
+}
+
+.ispirazione-testo p {
+  font-size: 0.88rem;
+  color: #666;
+}
+
+/* ===================== PASSIONI ===================== */
+.passioni {
+  max-width: 860px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+
+.passioni h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.passioni-griglia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.passione {
+  background: #ffffff;
+  border: 1px solid #e5e5e0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.passione:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.passione img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  flex-shrink: 0;
+}
+
+.passione-testo {
+  padding: 1.2rem;
+  flex: 1;
+}
+
+.passione-testo h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #1a1a1a;
+}
+
+.passione-testo p {
+  font-size: 0.88rem;
+  color: #666;
+}
+
+/* ===================== ARGOMENTI (foto + testo affiancati) ===================== */
+.argomento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #e5e5e0;
+}
+
+.argomento:last-child {
+  border-bottom: none;
+}
+
+/* Foto destra per gli argomenti pari */
+.argomento:nth-child(even) .argomento-foto {
+  order: 2;
+}
+.argomento:nth-child(even) .argomento-testo {
+  order: 1;
+}
+
+.argomento-foto {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 260px;
+}
+
+.argomento-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.argomento-testo h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #1a1a1a;
+}
+
+.argomento-testo p {
+  font-size: 0.93rem;
+  color: #555;
+  line-height: 1.75;
+}
+
+/* Foto impilate verticalmente */
+.argomento-foto.doppia {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: auto;
+}
+
+.argomento-foto.doppia img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Per immagini con schemi/diagrammi che non vanno tagliate */
+.argomento-foto img.contieni {
+  object-fit: contain;
+  background: #fff;
+}
+
+.argomento-foto:has(img.contieni) {
+  height: auto;
+}
+
+/* ===================== PAGINE INTERNE ===================== */
+.pagina-interna {
+  max-width: 760px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.pagina-interna h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #1a1a1a;
+}
+
+.pagina-interna .sottotitolo {
+  font-size: 0.85rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.pagina-interna img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1.8rem;
+  object-fit: cover;
+  max-height: 280px;
+}
+
+.pagina-interna h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.8rem 0 0.5rem;
+  color: #1a1a1a;
+}
+
+.pagina-interna p {
+  color: #555;
+  font-size: 0.97rem;
+}
+
+.pagina-interna ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.pagina-interna ul li {
+  margin-bottom: 0.3rem;
+}
+
+/* Card progetto / FSL / Ed. Civica */
+.card {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.etichetta {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #5a7a5a;
+  margin-bottom: 1rem;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: #bbb;
+  border-top: 1px solid #e5e5e0;
+  margin-top: auto;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 1rem 1.2rem;
+  }
+
+  .ispirazioni-griglia,
+  .passioni-griglia {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .argomento {
+    grid-template-columns: 1fr;
+  }
+
+  .argomento:nth-child(even) .argomento-foto {
+    order: 0;
+  }
+
+  .argomento:nth-child(even) .argomento-testo {
+    order: 0;
+  }
+
+  .argomento-foto {
+    height: 200px;
+  }
+
+  .chi-sono {
+    flex-direction: column;
+    text-align: center;
+    margin: 3rem auto;
+  }
+}
+
+@media (max-width: 440px) {
+  .ispirazioni-griglia,
+  .passioni-griglia {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================== CV ===================== */
+.cv { max-width: 860px; margin: 3rem auto; padding: 0 2rem 4rem; }
+
+    /* INTESTAZIONE */
+    .cv-header { text-align: center; margin-bottom: 3rem; }
+    .cv-header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: 2px; color: #1a1a1a; margin-bottom: 0.3rem; }
+    .cv-header .cv-percorso { font-size: 1rem; font-weight: 600; color: #555; letter-spacing: 1px; margin-bottom: 1.5rem; }
+    .cv-info-base { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; max-width: 500px; margin: 0 auto; font-size: 0.9rem; color: #555; }
+    .cv-info-base span:nth-child(odd) { color: #999; }
+    .cv-info-base span:nth-child(even) { font-weight: 600; color: #1a1a1a; text-align: right; }
+
+    /* SEZIONE */
+    .cv-sezione { margin-bottom: 2.5rem; }
+    .cv-sezione-titolo {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #5a7a5a;
+      border-bottom: 2px solid #5a7a5a;
+      padding-bottom: 0.4rem; margin-bottom: 1.2rem;
+    }
+    .cv-sezione h2 {
+      font-size: 1.1rem; font-weight: 700; color: #1a1a1a;
+      margin-bottom: 0.2rem; margin-top: 0;
+    }
+    .cv-sezione p { font-size: 0.9rem; color: #555; }
+
+    /* TABELLA PIANO DI STUDI */
+    .cv-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-bottom: 2rem; }
+    .cv-table th {
+      background: #e8f0e8; color: #1a1a1a; font-weight: 600;
+      padding: 0.5rem 0.7rem; text-align: left; border-bottom: 2px solid #c8d8c8;
+    }
+    .cv-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid #eee; color: #444; }
+    .cv-table tr:last-child td { font-weight: 700; background: #f5f5f0; }
+    .cv-table td:not(:first-child) { text-align: center; }
+    .cv-table th:not(:first-child) { text-align: center; }
+
+    /* CREDITI */
+    .cv-crediti { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 2rem; }
+    .cv-crediti th { background: #e8f0e8; padding: 0.5rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #c8d8c8; }
+    .cv-crediti td { padding: 0.55rem 1rem; border-bottom: 1px solid #eee; }
+    .cv-crediti tr:last-child td { font-weight: 700; }
+    .cv-crediti td:last-child { text-align: right; }
+
+    /* PCTO */
+    .pcto-card {
+      background: #fff; border: 1px solid #e5e5e0;
+      border-radius: 8px; padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem; font-size: 0.88rem;
+    }
+    .pcto-card table { width: 100%; border-collapse: collapse; }
+    .pcto-card td { padding: 0.25rem 0; color: #555; }
+    .pcto-card td:first-child { color: #999; width: 50%; }
+    .pcto-card td:last-child { font-weight: 500; color: #1a1a1a; text-align: right; }
+
+    /* COMPETENZE */
+    .cv-lista { padding-left: 1.3rem; margin: 0.5rem 0 1rem; }
+    .cv-lista li { font-size: 0.88rem; color: #555; margin-bottom: 0.35rem; line-height: 1.6; }
+    .cv-box {
+      background: #fff; border: 1px solid #e5e5e0;
+      border-radius: 8px; padding: 1.2rem 1.4rem; margin-bottom: 1rem;
+    }
+    .cv-box h3 { font-size: 0.85rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.6rem; }
+
+    /* ATTIVITÀ EXTRA */
+    .extra-card {
+      background: #fff; border: 1px solid #e5e5e0;
+      border-radius: 8px; padding: 1.2rem 1.4rem;
+      font-size: 0.88rem;
+    }
+    .extra-card table { width: 100%; border-collapse: collapse; }
+    .extra-card td { padding: 0.25rem 0; }
+    .extra-card td:first-child { color: #999; width: 50%; }
+    .extra-card td:last-child { font-weight: 500; color: #1a1a1a; text-align: right; }
+
+    .btn-scarica {
+    display: inline-block;
+    padding: 0.55rem 1.2rem;
+    background: #5a7a5a;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+.btn-scarica:hover {
+  background: #4a6a4a;
+}
