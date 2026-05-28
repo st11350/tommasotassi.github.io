@@ -374,8 +374,8 @@ ul {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 1.8rem;
-  object-fit: contain;
-  max-height: none;
+  object-fit: cover;
+  max-height: 280px;
 }
 
 .pagina-interna h2 {
